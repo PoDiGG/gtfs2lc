@@ -27,6 +27,7 @@ console.error("GTFS to linked connections converter use --help to discover more 
 
 program
   .option('-f, --format <format>', 'Format of the output. Possibilities: csv, ntriples, turtle, json, jsonld (default: json), mongo (extended JSON format to be used with mongoimport) or mongold')
+  .option('-r, --enrich', 'If the stop data should be enriched')
   .option('-s, --startDate <startDate>', 'startDate in YYYYMMDD format')
   .option('-e, --endDate <endDate>', 'endDate in YYYYMMDD format')
   .option('-b, --baseUris <baseUris>', 'path to a file that describes the baseUris in json')
@@ -45,7 +46,8 @@ if (!program.path) {
 var mapper = new gtfs2lc.Connections({
   startDate : program.startDate,
   endDate : program.endDate,
-  store : program.store
+  store : program.store,
+  enrich : program.enrich
 });
 
 var baseUris = null;
