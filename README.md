@@ -38,6 +38,16 @@ Mind that only MongoDB starting version 2.6 is supported.
 
 For more options, check `gtfs2lc --help`
 
+## Enrichment step
+
+The output data can automatically be enriched with this tool when adding the `-r` or `--enrich` option.
+This will add additional stop information that is available in `stops.txt` like stop name, platform code, station, longitude and latitude.
+The station information is retrieved from the iRail API, and will emit information like station name, country, longitude and latitude.
+Next to that, each station will be linked with a LinkedGeoData node (if a corresponding Station node can be found).
+
+Currently, this enrichment step only works optimally for Belgian railway data, because the iRail API is used.
+When this enrichment step is done for data from other countries, the station information will not be generated.
+
 ## How it works (for contributors)
 
 We convert `stop_times.txt` to a stream of connection rules. These rules need a certain explanation about on which days they are running, which can be retrieved using the `trip_id` in the connection rules stream.
