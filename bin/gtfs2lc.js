@@ -102,7 +102,7 @@ mapper.resultStream(program.path, function (stream) {
     if (program.format === 'ntriples') {
       stream = stream.pipe(new N3.StreamWriter({ format : 'N-Triples'}));
     } else if (program.format === 'turtle') {
-      stream = stream.pipe(new N3.StreamWriter({ prefixes: { lc: 'http://semweb.mmlab.be/ns/linkedconnections#', lcm: 'http://semweb.mmlab.be/ns/linkedconnectionsmeta#', gtfs : 'http://vocab.gtfs.org/terms#', xsd: 'http://www.w3.org/2001/XMLSchema#' } }));
+      stream = stream.pipe(new N3.StreamWriter({ prefixes: { lc: 'http://semweb.mmlab.be/ns/linkedconnections#', lcm: 'http://semweb.mmlab.be/ns/linkedconnectionsmeta#', td: 'http://purl.org/td/transportdisruption#', gtfs : 'http://vocab.gtfs.org/terms#', xsd: 'http://www.w3.org/2001/XMLSchema#' } }));
     }
     stream.pipe(process.stdout);
   }
