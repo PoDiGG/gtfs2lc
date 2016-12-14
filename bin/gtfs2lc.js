@@ -114,6 +114,7 @@ mapper.resultStream(program.path, function (stream) {
     //clean up the leveldb
     deleteFolderRecursive(program.path + "/.services");
     deleteFolderRecursive(program.path + "/.trips");
+    console.error("\nDone!");
   });
 });
 
